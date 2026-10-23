@@ -10,7 +10,6 @@
 #define GIF_SLOWEST     20              // browsers treat anything quicker as broken and use 100ms
 #define GIF_DEFAULT     100
 #define FOLDER_MAX      4096
-#define DIRENT_FILE     1
 
 static const char *const exts[] = {
     "png", "jpg", "jpeg", "jpe", "jfif", "gif", "bmp", "tga", "psd", "pnm", "ppm", "pgm", "hdr", "pic", NULL
@@ -239,7 +238,7 @@ void folder_scan(const char *path) {
     names = malloc((size_t)FOLDER_MAX * EXH_NAME_MAX);
     struct dirent *e;
     while (names && name_count < FOLDER_MAX && (e = readdir(dir))) {
-        if (e->d_type == DIRENT_FILE && picture_name_ok(e->d_name)) {
+        if (e->d_type == DT_REG && picture_name_ok(e->d_name)) {
             snprintf(names[name_count], EXH_NAME_MAX, "%s", e->d_name);
             name_count++;
         }
