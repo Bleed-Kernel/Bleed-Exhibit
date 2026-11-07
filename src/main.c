@@ -20,7 +20,7 @@
 #define STATUS_H        22
 #define STATUS_RIGHT_W  150
 #define DOUBLE_CLICK_MS 400
-#define CABINET         "/initrd/bin/cabinet"
+#define CABINET         "/bin/cabinet"
 
 #define KEY_ESCAPE      0x01
 #define KEY_DELETE      0x53
